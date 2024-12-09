@@ -24,12 +24,7 @@ stages:
       - agent.name -equals win-agent
     steps:
   
-    - task: DockerInstaller@0
-      displayName: 'Install Docker'
-    - script: |
-        docker --version
-        docker info
-        displayName: 'Verify Docker Installation'
+   
 
     - task: Docker@2
       displayName: Build an image
