@@ -4,10 +4,7 @@
 
 trigger:
 - main
-pool:
-  name: Default
-  demands:
-    - agent.name -equals win-agent
+
 
 resources:
 - repo: self
@@ -22,7 +19,9 @@ stages:
   - job: Build
     displayName: Build
     pool:
-      vmImage: ubuntu-latest
+      name: Default
+      demands:
+      - agent.name -equals win-agent
     steps:
     - task: Docker@2
       displayName: Build an image
